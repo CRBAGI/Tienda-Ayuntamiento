@@ -38,6 +38,7 @@
   
 <mat-toolbar color="primary" class="flex justify-start ">
 <!--3 puntitos-->
+<nav class="flex items-center justify-between flex-wrap  p-1"> 
  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
   </button>
@@ -70,13 +71,14 @@
       <span>categorias</span>
     </button>
 
-<br/>
-<button mat-menu-item>
-  <mat-icon>logoutt</mat-icon>
-  <span>cerrar sesion</span>
-</button>
-  </mat-menu>
+      <br/>
+      <button mat-menu-item>
+        <mat-icon>logoutt</mat-icon>
+        <span>cerrar sesion</span>
+      </button>
 
+  </mat-menu>
+</nav>
 <!--3 puntitos-->
   <!--Boton de categoria-->
   <!-- component -->

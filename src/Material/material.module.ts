@@ -8,7 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatSelectModule} from '@angular/material/select';
 
  @NgModule({
   declarations: [],
@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatAutocompleteModule,
     MatSlideToggleModule,
     MatFormFieldModule,
+    MatSelectModule,
       ],
   exports: [
     MatToolbarModule, 
@@ -32,6 +33,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatAutocompleteModule,
     MatSlideToggleModule,
     MatFormFieldModule,
+    MatSelectModule,
        ]
     })
     export class MaterialModule { }
