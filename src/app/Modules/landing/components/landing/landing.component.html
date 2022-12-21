@@ -1,6 +1,44 @@
 <!-- Menu -->
 <mat-toolbar color="primary">
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+ 
+
+  <div class="mb-6 md:mb-0">
+    <a href=" " class="flex items-center">
+        <img src="assets/Mercado no Libre Irregular.png" class="mr-3 h-8" alt="FlowBite Logo" />
+        <span class="self-center  font-semibold text-gray-900 uppercase dark:text-white">Mercado 
+          <br>No Libre</span>
+    </a>
+</div>
+<!-- Buscador -->
+<!-- component -->
+<!-- This is an example component -->
+<div class="w-96 pt-2 relative mx-auto text-gray-600">
+<input class="w-96 hover:w-full border-2 border-gray-300 bg-white h-10 px-auto pr-16 w-300 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+  type="search" name="search" placeholder="Search">
+<button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+  <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+    width="512px" height="512px">
+    <path
+      d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+  </svg>
+</button>
+</div>    
+<!-- CarritoDeCompras -->
+  <button mat-icon-button matBadge="8" matBadgePosition="before" matBadgeColor="accent" routerLink="/Carrito">
+<mat-icon>shopping cart</mat-icon>
+</button>
+  <!-- Login -->
+  <button mat-icon-button class="app-login"  aria-label="Example icon-button with share icon" routerLink="/Login">
+    <mat-icon>login</mat-icon>
+  </button>
+
+</mat-toolbar>
+  
+<mat-toolbar color="primary" class="flex justify-start ">
+<!--3 puntitos-->
+ <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
@@ -39,57 +77,23 @@
 </button>
   </mat-menu>
 
-  <div class="mb-6 md:mb-0">
-    <a href=" " class="flex items-center">
-        <img src="assets/Mercado no Libre Irregular.png" class="mr-3 h-8" alt="FlowBite Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mercado No Libre</span>
-    </a>
-</div>
-<!-- Buscador -->
-<!-- component -->
-<!-- This is an example component -->
-<div class="w-96 pt-2 relative mx-auto text-gray-600">
-<input class="w-96 hover:w-full border-2 border-gray-300 bg-white h-10 px-auto pr-16 w-300 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-  type="search" name="search" placeholder="Search">
-<button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
-  <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
-    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
-    width="512px" height="512px">
-    <path
-      d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-  </svg>
-</button>
-</div>    
-<!-- CarritoDeCompras -->
-  <button mat-icon-button matBadge="8" matBadgePosition="before" matBadgeColor="accent" routerLink="/Carrito">
-<mat-icon>shopping cart</mat-icon>
-</button>
-  <!-- Login -->
-  <button mat-icon-button class="app-login"  aria-label="Example icon-button with share icon" routerLink="/Login">
-    <mat-icon>login</mat-icon>
-  </button>
-
-</mat-toolbar>
-  
-<mat-toolbar color="primary" class="flex justify-center ">
-
+<!--3 puntitos-->
   <!--Boton de categoria-->
   <!-- component -->
   <nav class="flex items-center justify-between flex-wrap  p-1">
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          Docs
+          Inicio
         </a>
         <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          Examples
+          Ofertas
         </a>
         <a class="group inline-block">
           <button
             class="outline-none focus:outline-none rounded-sm flex items-center text-teal-200 min-w-32"
           >
-            <span class="pr-1  flex-1">Dropdown</span>
+            <span class="pr-1  flex-1">Categorias</span>
             <span>
               <svg
                 class="fill-current h-4 w-4 transform group-hover:-rotate-180
@@ -107,13 +111,13 @@
             class="bg-black border rounded-sm transform scale-0 group-hover:scale-100 absolute 
           transition duration-150 ease-in-out origin-top min-w-32"
           >
-            <li class="rounded-sm px-3 py-1 hover:bg-zinc-800">Programming</li>
-            <li class="rounded-sm px-3 py-1 hover:bg-zinc-800">DevOps</li>
+            <li class="rounded-sm px-3 py-1 hover:bg-zinc-800">Moda</li>
+            <li class="rounded-sm px-3 py-1 hover:bg-zinc-800">Juegos</li>
             <li class="rounded-sm relative px-3 py-1 hover:bg-zinc-800">
               <button
                 class="w-full text-left flex items-center outline-none focus:outline-none"
               >
-                <span class="pr-1 flex-1">Langauges</span>
+                <span class="pr-1 flex-1">Tecnologia</span>
                 <span class="mr-auto">
                   <svg
                     class="fill-current h-4 w-4
@@ -133,12 +137,12 @@
           min-w-32
           "
               >
-                <li class="px-3 py-1 hover:bg-zinc-800">Javascript</li>
+                <li class="px-3 py-1 hover:bg-zinc-800">Telefonos</li>
                 <li class="rounded-sm relative px-3 py-1 hover:bg-zinc-800">
                   <button
                     class="w-full text-left flex items-center outline-none focus:outline-none"
                   >
-                    <span class="pr-1 flex-1">Python</span>
+                    <span class="pr-1 flex-1">Computadoras</span>
                     <span class="mr-auto">
                       <svg
                         class="fill-current h-4 w-4
@@ -158,15 +162,15 @@
               min-w-32
               "
                   >
-                    <li class="px-3 py-1 hover:bg-zinc-800">2.7</li>
-                    <li class="px-3 py-1 hover:bg-zinc-800">3+</li>
+                    <li class="px-3 py-1 hover:bg-zinc-800">PC</li>
+                    <li class="px-3 py-1 hover:bg-zinc-800">Laptops</li>
                   </ul>
                 </li>
-                <li class="px-3 py-1 hover:bg-zinc-800">Go</li>
-                <li class="px-3 py-1 hover:bg-zinc-800">Rust</li>
+                <li class="px-3 py-1 hover:bg-zinc-800">Camara y Accesorios</li>
+                <li class="px-3 py-1 hover:bg-zinc-800">Electronica</li>
               </ul>
             </li>
-            <li class="rounded-sm px-3 py-1 hover:bg-zinc-800">Testing</li>
+            <li class="rounded-sm px-3 py-1 hover:bg-zinc-800">Juguetes</li>
           </ul>
         
         
@@ -199,9 +203,29 @@
 
 
 
+<!--Carousel inicio-->
+<div class="slider">
+  <ul>
+      <li>
+          <img src="https://http2.mlstatic.com/D_NQ_906475-MLA52952927623_122022-OO.webp">
+      </li>
+      <li>
+          <img src="https://http2.mlstatic.com/D_NQ_853304-MLA52688079314_122022-OO.webp">
+      </li>
+      <li>
+          <img src="https://http2.mlstatic.com/D_NQ_669520-MLA52774282788_122022-OO.webp">
+      </li>
+      <li>
+          <img src="https://http2.mlstatic.com/D_NQ_988887-MLA52700708750_122022-OO.webp">
+      </li>
+  </ul>
+</div>
+
+<!--Carousel final-->
+
 
   <!--banner-->
-  
+  <!-- comentar
   <div class="container mx-auto py-9 md:py-12 px-4 md:px-6">
     <div class="flex items-strech justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
         <div class="flex flex-col md:flex-row items-strech justify-between bg-gray-50 dark:bg-gray-800 py-6 px-6 md:py-12 lg:px-12 md:w-8/12 lg:w-7/12 xl:w-8/12 2xl:w-9/12">
@@ -224,7 +248,7 @@
         </div>
     </div>
 </div>
-
+-->
 
 <!-- Parte de lista de productos -->
 <div class="bg-white">
