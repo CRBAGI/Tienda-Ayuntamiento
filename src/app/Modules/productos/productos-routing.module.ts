@@ -4,6 +4,7 @@ import { AgregarComponent } from './components/agregar/agregar.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProvedoresComponent } from './components/provedores/provedores.component';
+import { VerproductoComponent } from './components/verproducto/verproducto.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
       {path: 'categoria', component: CategoriaComponent},
       {path: 'provedores', component: ProvedoresComponent},
       {path: 'agregar', component: AgregarComponent},
+      {path: 'ver', component: VerproductoComponent},
       
       {path: '', component: ProductosComponent}
     ]

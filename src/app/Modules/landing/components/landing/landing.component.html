@@ -1,18 +1,36 @@
 <!-- Menu -->
-<mat-toolbar color="primary">
+<mat-toolbar class="w-16 md:w-32 lg:w-48 flex justify-between" color="primary">
  
 
-  <div class="mb-6 md:mb-0">
-    <a href=" " class="flex items-center">
+  <div class="w-16 md:w-32 lg:w-48 flex justify-start">
+    <a href=" " class="w-16 md:w-32 lg:w-48 flex items-center">
         <img src="assets/Mercado no Libre Irregular.png" class="mr-3 h-8" alt="FlowBite Logo" />
-        <span class="self-center  font-semibold text-gray-900 uppercase dark:text-white">Mercado 
+        <span class="hidden sm:block self-center  font-semibold text-gray-900 uppercase dark:text-white">Mercado 
           <br>No Libre</span>
     </a>
 </div>
 <!-- Buscador -->
+
+<form class="flex items-center ">   
+  <label for="simple-search" class="sr-only">Search</label>
+  <div class="relative w-full pt-2">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+      </div>
+      <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
+  </div>
+  <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      <span class="sr-only">Search</span>
+  </button>
+  </form>
+
+
+
 <!-- component -->
 <!-- This is an example component -->
-<div class="w-96 pt-2 relative mx-auto text-gray-600">
+<!-- 
+<div class="w-96 pt-2 relative mx-auto  text-gray-600">
 <input class="w-96 hover:w-full border-2 border-gray-300 bg-white h-10 px-auto pr-16 w-300 px-5 pr-16 rounded-lg text-sm focus:outline-none"
   type="search" name="search" placeholder="Search">
 <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
@@ -25,6 +43,8 @@
   </svg>
 </button>
 </div>    
+-->
+<div class="flex justify-end w-16 md:w-32 lg:w-48">
 <!-- CarritoDeCompras -->
   <button mat-icon-button matBadge="8" matBadgePosition="before" matBadgeColor="accent" routerLink="/Carrito">
 <mat-icon>shopping cart</mat-icon>
@@ -33,72 +53,94 @@
   <button mat-icon-button class="app-login"  aria-label="Example icon-button with share icon" routerLink="/Login">
     <mat-icon>login</mat-icon>
   </button>
-
+</div>
 </mat-toolbar>
   
-<mat-toolbar color="primary" class="flex justify-start ">
-<!--3 puntitos-->
-<nav class="flex items-center justify-between flex-wrap  p-1"> 
- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <span>Cliente</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>search</mat-icon>
-      <span>buscar</span>
-    </button>
-    <button mat-menu-item routerLink="/Carrito">
-      <mat-icon>shopping Cart checkout</mat-icon>
-      <span>ver carrito</span>
-    </button>
+<mat-toolbar color="primary" class="flex justify-center ">
+  <!--3 puntitos-->
 
-    <button mat-menu-item>
-      <span>Adninistrador</span>
-    </button>
-    <button mat-menu-item routerLink="/agregar">
-      <mat-icon>add</mat-icon>
-      <span>agregar producto</span>
-    </button>
-    <button mat-menu-item routerLink="/Productos">
-      <mat-icon>edit</mat-icon>
-      <span>ver lista de productos</span>
-    </button>
-    <button mat-menu-item routerLink="/categoria">
-      <mat-icon>category</mat-icon>
-      <span>categorias</span>
-    </button>
-
-      <br/>
-      <button mat-menu-item>
-        <mat-icon>logoutt</mat-icon>
-        <span>cerrar sesion</span>
+ 
+<nav class="hidden lg:block flex items-center justify-between flex-wrap  p-1"> 
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div class="text-sm lg:flex-grow">
+          <!--Inicio-->
+          <button routerLink="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <span>Inicio </span>
+          </button>
+          <!--Fin de inicio-->
+          <!--Mi carrito-->
+          <button routerLink="/Carrito" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <span>Mi carrito </span>
+          </button>
+             <!--Mi carrito-->
+          <!--Categorias-->
+      <button class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <span class="pr-1  flex-1">Categorias</span>
       </button>
+        
+        <mat-menu  #menu="matMenu" class="flex justify-center">
+          <button mat-menu-item>
+            <span>Moda</span>
+          </button>
+          <button mat-menu-item>
+            <span>Juegos</span>
+          </button>
 
-  </mat-menu>
+          <button mat-menu-item [matMenuTriggerFor]="Tecnologia" aria-label="Example icon-button with a menu">
+            <span>Tecnologia</span>
+          </button>
+          <mat-menu #Tecnologia="matMenu" xPosition="after">
+            <button mat-menu-item>Telefonos</button>
+            <button mat-menu-item [matMenuTriggerFor]="Computadoras">Computadoras</button>
+            <button mat-menu-item>Camara y Accesorios</button>
+            <button mat-menu-item>Electronica</button>
+          </mat-menu>
+          <mat-menu #Computadoras="matMenu">
+            <button mat-menu-item>PC</button>
+            <button mat-menu-item>Laptops</button>
+          </mat-menu>
+          
+          
+          <button mat-menu-item >
+            <span>Juguetes</span>
+          </button>
+          
+       </mat-menu>
+       <!--Fin de categoria-->
+       <!--Administrar-->
+       <button class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"  [matMenuTriggerFor]="Administrar" aria-label="Example icon-button with a menu">
+        <span>Administrar</span>
+       </button>
+       <mat-menu #Administrar="matMenu"> 
+        <button routerLink="/ver" mat-menu-item>Mis Productos</button>
+        <button routerLink="/agregar" mat-menu-item>Agregar Producto</button>
+       </mat-menu>
+       <button class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"  aria-label="Example icon-button with a menu">
+        <span>Cerrar Sesion</span>
+       </button>
+    </div>
+  </div>
 </nav>
+  <!--3 puntitos-->
 <!--3 puntitos-->
   <!--Boton de categoria-->
   <!-- component -->
+  <!--SS
   <nav class="flex items-center justify-between flex-wrap  p-1">
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
-        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        <a routerLink="" href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
           Inicio
         </a>
-        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-          Ofertas
-        </a>
-        <a class="group inline-block">
+      
+        <a class="group inline-block block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
           <button
-            class="outline-none focus:outline-none rounded-sm flex items-center text-teal-200 min-w-32"
+            class="outline-none focus:outline-none rounded-sm flex items-center text-teal-200 min-w-10"
           >
             <span class="pr-1  flex-1">Categorias</span>
             <span>
               <svg
-                class="fill-current h-4 w-4 transform group-hover:-rotate-180
+                class="fill-current h-4 w-4 transform group-hover:-rotate-180 
                 transition duration-150 ease-in-out"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -145,7 +187,7 @@
                     class="w-full text-left flex items-center outline-none focus:outline-none"
                   >
                     <span class="pr-1 flex-1">Computadoras</span>
-                    <span class="mr-auto">
+                    <span class="mr-auto ">
                       <svg
                         class="fill-current h-4 w-4
                         transition duration-150 ease-in-out"
@@ -178,6 +220,44 @@
         
 
         </a>
+        <a routerLink="/Carrito" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Mi carrito
+        </a>
+        <a class="group inline-block">
+          <button
+            class="outline-none focus:outline-none rounded-sm flex items-center text-teal-200 min-w-10"
+          >
+            <span class="pr-1  flex-1">Administrador</span>
+            <span>
+              <svg
+                class="fill-current h-4 w-4 transform group-hover:-rotate-180 
+                transition duration-150 ease-in-out"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </span>
+          </button>
+          <ul
+            class="bg-black border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+          transition duration-150 ease-in-out origin-top min-w-32"
+          >
+          <button> 
+            <li routerLink="/Productos" class="rounded-sm px-3 py-1 hover:bg-zinc-800">Mis Productos </li>
+          </button>
+          <br>
+          <button>
+            <li  routerLink="/agregar" class="rounded-sm px-3 py-1 hover:bg-zinc-800">Agregar Producto</li>
+          </button>
+
+          </ul>
+        </a>
+        <a routerLink="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+          Cerrar Sesion
+        </a>
       </div>
     </div>
     </nav>
@@ -201,12 +281,15 @@
       .scale-0 { transform: scale(0) }
       .min-w-32 { min-width: 8rem }
     </style>
+  -->
   </mat-toolbar>
 
 
 
 <!--Carousel inicio-->
-<div class="slider">
+
+<div class="slider ">
+  <div class="2xl:-Auto">
   <ul>
       <li>
           <img src="https://http2.mlstatic.com/D_NQ_906475-MLA52952927623_122022-OO.webp">
@@ -221,6 +304,7 @@
           <img src="https://http2.mlstatic.com/D_NQ_988887-MLA52700708750_122022-OO.webp">
       </li>
   </ul>
+</div>
 </div>
 
 <!--Carousel final-->

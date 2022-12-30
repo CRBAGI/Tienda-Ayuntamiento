@@ -7,6 +7,8 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ProvedoresComponent } from './components/provedores/provedores.component';
 import { MaterialModule } from 'src/Material/material.module';
 import { AgregarComponent } from './components/agregar/agregar.component';
+import { VerproductoComponent } from './components/verproducto/verproducto.component';
+
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { AgregarComponent } from './components/agregar/agregar.component';
     ProductosComponent,
     CategoriaComponent,
     ProvedoresComponent,
-    AgregarComponent
+    AgregarComponent,
+    VerproductoComponent,
+
   ],
   imports: [
     CommonModule,

@@ -1,31 +1,52 @@
-<mat-card>
-    <h1>Agregar producto</h1>
-    <p>
-      <mat-form-field>
-        <input matInput 
-               type="text"
-               placeholder="Nombre">
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <textarea rows="10" matInput
-                  placeholder="Descripción"></textarea>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <input matInput 
-               type="number"
-               placeholder="Precio">
-      </mat-form-field>
-    </p>
-    <label for="fotos">Fotos</label>
-    <br>
-    <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file">
-    <p>
-
-      <a routerLink="/productos" mat-raised-button color="primary" style="margin-left: 10px">Volver</a>
-    </p>
-  </mat-card>
+<body class="bg-gray-500 w-full">
+  <div class="flex justify-center py-3">
+      <div class="w-full max-w-4xl bg-slate-100  mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
+        <h1 class="font-semibold text-2xl">Agregar Producto</h1>  
+        <div class="">
+              <label class="text-black " for="emailAddress">Nombre del producto </label>
+              <input type="text" id="Nombredelproducto" placeholder="Nombre del producto" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          </div>
+            <div class="">
+                <label class="text-black " for="emailAddress">Descripcion </label>
+                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
+            </div>
+              <div >
+                <label class="text-black " for="emailAddress">Precio </label>
+                <input matInput type="number" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Precio">
+                 </div> 
+                 <div> 
+                  <mat-form-field appearance="fill">
+                    <mat-label class="">Categoria</mat-label>
+                    <mat-select>
+                      <mat-option value="1">Moda</mat-option>
+                      <mat-option value="2">Juegos</mat-option>
+                   <mat-optgroup label="Tecnologia"> 
+                      <mat-option value="3">Telefonos</mat-option>  
+                      <mat-option value="5">Camaras y Accesorios</mat-option>
+                      <mat-option value="6">Electronica</mat-option>
+                   </mat-optgroup>     
+                   <mat-optgroup label="Computadoras">  
+                    <mat-option value="4">PC</mat-option>
+                    <mat-option value="5">Laptops</mat-option>
+                    </mat-optgroup>   
+                      <mat-option value="4">Juguetes</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+                </div>
+              <div >
+                <h1 class="font-medium text-2xl">Agregar Fotos</h1>  
+                <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file">
+                  <button routerLink=""
+                  class="px-8 py-3 ml-80 font-semibold cursor-pointer text-center focus:outline-none transition hover:shadow-lg shadow hover:bg-indigo-700 rounded-full text-white bg-indigo-600 ">
+                  Agregar
+                </button>
+              </div>
+                <div>
+                
+                </div>
+               
+          </div>
+      </div>
   
+    </body>
