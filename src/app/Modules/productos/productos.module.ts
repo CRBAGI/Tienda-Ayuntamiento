@@ -8,6 +8,7 @@ import { ProvedoresComponent } from './components/provedores/provedores.componen
 import { MaterialModule } from 'src/Material/material.module';
 import { AgregarComponent } from './components/agregar/agregar.component';
 import { VerproductoComponent } from './components/verproducto/verproducto.component';
+import { EdicproducComponent } from './components/editproduc/edicproduc.component';
 
 
 
@@ -18,6 +19,7 @@ import { VerproductoComponent } from './components/verproducto/verproducto.compo
     ProvedoresComponent,
     AgregarComponent,
     VerproductoComponent,
+    EdicproducComponent,
 
   ],
   imports: [
