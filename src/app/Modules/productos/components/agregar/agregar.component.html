@@ -1,5 +1,8 @@
 <body class="bg-gray-500 w-full">
-  <div class="flex justify-center py-3">
+  <div class="flex justify-start">
+
+  </div>
+  <div class="flex justify-end py-3">
       <div class="w-full max-w-4xl bg-slate-100  mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
         <h1 class="font-semibold text-2xl">Agregar Producto</h1>  
         <div class="">
@@ -10,11 +13,8 @@
                 <label class="text-black " for="emailAddress">Descripcion </label>
                 <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
             </div>
-              <div >
-                <label class="text-black " for="emailAddress">Precio </label>
-                <input matInput type="number" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Precio">
-                 </div> 
-                 <div> 
+              <div class="flex justify-between">
+                <div class="py-3"> 
                   <mat-form-field appearance="fill">
                     <mat-label class="">Categoria</mat-label>
                     <mat-select>
@@ -34,19 +34,36 @@
                   </mat-form-field>
                   
                 </div>
-              <div >
-                <h1 class="font-medium text-2xl">Agregar Fotos</h1>  
-                <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file">
-                  <button routerLink=""
-                  class="px-8 py-3 ml-80 font-semibold cursor-pointer text-center focus:outline-none transition hover:shadow-lg shadow hover:bg-indigo-700 rounded-full text-white bg-indigo-600 ">
-                  Agregar
-                </button>
-              </div>
                 <div>
+                   <label class="text-black " for="emailAddress">Precio </label>
+                      <div class="">
+                         <span matTextPrefix>$&nbsp;</span>
+                          <input matInput type="number" class="p-2.5 w-48 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Precio">
+                     </div>
+                </div>
+                <div>      
+                      <label class="text-black " for="emailAddress">Cantidad</label>
+                      <input matInput type="number" class="block p-2.5 w-48 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cantidad">
+                </div>
                 
+              </div> 
+              <div>      
+                <label class="text-black " for="fotos">Fotos</label>
+                <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file" class="block p-2.5 " placeholder="Cantidad">
+              </div>
+
+              <div class="flex justify-between">
+                  <a routerLink="" class="flex font-semibold text-indigo-600 text-sm mt-10">
+                    <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"></svg>
+                    Regresar
+                    </a>
+                        <a routerLink="/agregar" class="flex font-semibold text-indigo-600 text-sm mt-10">
+                    <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"></svg>
+                    Agregar
+                    </a>
                 </div>
                
           </div>
       </div>
-  
+
     </body>
