@@ -9,6 +9,7 @@ import { MaterialModule } from 'src/Material/material.module';
 import { AgregarComponent } from './components/agregar/agregar.component';
 import { VerproductoComponent } from './components/verproducto/verproducto.component';
 import { EdicproducComponent } from './components/editproduc/edicproduc.component';
+import { SwiperModule } from "swiper/angular";
 
 
 
@@ -25,7 +26,8 @@ import { EdicproducComponent } from './components/editproduc/edicproduc.componen
   imports: [
     CommonModule,
     ProductosRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SwiperModule
   ]
 })
 export class ProductosModule { }
