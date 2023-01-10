@@ -10,6 +10,7 @@ import { AgregarComponent } from './components/agregar/agregar.component';
 import { VerproductoComponent } from './components/verproducto/verproducto.component';
 import { EdicproducComponent } from './components/editproduc/edicproduc.component';
 import { SwiperModule } from "swiper/angular";
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -27,7 +28,8 @@ import { SwiperModule } from "swiper/angular";
     CommonModule,
     ProductosRoutingModule,
     MaterialModule,
-    SwiperModule
+    SwiperModule,
+    SharedModule
   ]
 })
 export class ProductosModule { }
