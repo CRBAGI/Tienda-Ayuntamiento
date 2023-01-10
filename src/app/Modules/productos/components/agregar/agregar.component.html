@@ -96,11 +96,12 @@
                         <!--Poner aqui-->
                         <div class="flex justify-between">
                           <div>
-                            <label class="text-black " for="emailAddress">Precio </label>
-                                <div class="">
-                                  <span matTextPrefix>$&nbsp;</span>
-                                    <input matInput type="number" class="p-2.5 w-48 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Precio">
-                              </div>
+                            <mat-form-field appearance="fill" floatLabel="always">
+                              <mat-label>Amount</mat-label>
+                              <input matInput type="number"  placeholder="0">
+                              <span matTextPrefix>$&nbsp;</span>
+                              <span matTextSuffix>.00</span>
+                            </mat-form-field>
                           </div>
                           <div>      
                                 <label class="text-black " for="emailAddress">Cantidad</label>

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agregar.component.css']
 })
 export class AgregarComponent implements OnInit {
+  hide = true;
 
   constructor() { }
 
@@ -13,7 +14,5 @@ export class AgregarComponent implements OnInit {
   }
 
 }
-export class FormFieldPrefixSuffixExample {
-  hide = true;
-}
+
 
