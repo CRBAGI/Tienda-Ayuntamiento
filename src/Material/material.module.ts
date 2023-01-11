@@ -11,6 +11,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
  @NgModule({
   declarations: [],
@@ -27,6 +29,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatGridListModule,
     MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     
       ],
   exports: [
@@ -41,6 +45,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatGridListModule,
     MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
        ]
     })
     export class MaterialModule { }

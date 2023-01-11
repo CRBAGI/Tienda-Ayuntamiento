@@ -71,14 +71,14 @@
                         </div>
                         <div class="flex justify-between">
                           <div class="py-3"> 
-                            <mat-form-field appearance="fill">
+                            <mat-form-field  appearance="fill">
                               <mat-label>Categoria</mat-label>
                               <mat-select [formControl]="categoriaControl">
                                 <mat-option>-- None --</mat-option>
                                 <mat-optgroup *ngFor="let group of categoriaGroups" [label]="group.name"
                                               [disabled]="group.disabled">
-                                  <mat-option *ngFor="let pokemon of group.categoria" [value]="pokemon.value">
-                                    {{pokemon.viewValue}}
+                                  <mat-option *ngFor="let categoria of group.categoria" [value]="categoria.value">
+                                    {{categoria.viewValue}}
                                   </mat-option>
                                 </mat-optgroup>
                               </mat-select>

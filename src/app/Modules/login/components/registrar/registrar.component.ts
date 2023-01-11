@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import {FormControl} from '@angular/forms';
+import {MatCalendarCellClassFunction} from '@angular/material/datepicker';
+import {FormGroup, FormControl} from '@angular/forms';
 
 interface rol {
   value: string;
@@ -29,6 +30,7 @@ export class RegistrarComponent implements OnInit {
       rol: ['',Validators.required,],
       contraseña: ['', [Validators.required, Validators.maxLength(500)]],
       confirmarContraseña: ['', [Validators.required, Validators.maxLength(500)]],
+      fechaN: ['2/2/1990', Validators.required,]
 
     });
     
@@ -49,6 +51,8 @@ export class RegistrarComponent implements OnInit {
       ],
     },
   ];
+  //calendario
+  startDate = new Date(1990, 0, 1);
   ngOnInit(): void {
   }
 
