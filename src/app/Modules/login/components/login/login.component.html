@@ -8,18 +8,18 @@ style="background-image: url(https://images.unsplash.com/photo-1624916888581-489
     <div class="mt-2 items-center z-10">
         <form class="p-14 bg-white max-w-sm mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
             <h2 class="text-4xl font-bold text-center text-indigo-600">Login</h2>
-            <div class="f-outline px-2 relative border rounded-lg focus-within:border-indigo-500">
-                <input type="email" name="email" placeholder=" "
-                    class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent" />
-                <label for="Correo"
-                    class="rounded-lg absolute ml-5 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Correo</label>
+            <div>
+                <mat-form-field class="example-full-width"> 
+                    <mat-label>Correo</mat-label>
+                        <input matInput type="text" formControlName="correo" required placeholder="Escribe el correo" class="block p-2.5 w-full h-6 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      </mat-form-field>
             </div>
-            <div class="f-outline px-2 relative border rounded-lg focus-within:border-indigo-500">
-                <input type="password" name="password" placeholder=" "
-                    class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent" />
-                <label for="password"
-                    class="rounded-lg absolute ml-5 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Contraseña</label>
-            </div>
+            <div>
+                <mat-form-field class="example-full-width"> 
+                    <mat-label>Contraseña</mat-label>
+                        <input matInput type="text" formControlName="contraseña" required placeholder="Escribe la contraseña" class="block p-2.5 w-full h-6 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      </mat-form-field>
+                </div>
             <div class="block mt-2">
                 <label for="" class="flex items-center">
                     <input type="checkbox"
