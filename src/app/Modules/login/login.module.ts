@@ -7,6 +7,8 @@ import { RecpasswordComponent } from './components/recpassword/recpassword.compo
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MaterialModule } from 'src/Material/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     LoginRoutingModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule,
+    MaterialModule
   ]
 })
 export class LoginModule { }
