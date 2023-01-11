@@ -2,7 +2,7 @@
   <section class="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
     <div class="flex justify-end py-3">
       <div class="max-w-screen-xl bg-slate-100  mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
- <form [formGroup]="formularioContacto" (ngSubmit)="submit()">  
+ <form [formGroup]="formularioAgregar" (ngSubmit)="submit()">  
   
     <div class="grid grid-cols-2  sm:grid-cols-5 grid-rows-1">
         <!--Fotos-->
@@ -65,7 +65,7 @@
                   <div class="">
                        <mat-form-field class="example-full-width">
                           <mat-label >Descripcion </mat-label>
-                          <textarea matInput #descripcion maxlength="256" formControlName="categoria" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
+                          <textarea matInput #descripcion maxlength="256" formControlName="descripcion" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
                           <mat-hint align="end">{{descripcion.value.length}} / 256</mat-hint>
                         </mat-form-field>
                         </div>
@@ -88,7 +88,8 @@
                           <div>      
 
                             <mat-form-field class="example-full-width">
-                            <input matInput type="text" required class="block p-2.5 w-48 h-8 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Marca">
+                              <mat-label >Marca </mat-label>
+                              <input matInput type="text" formControlName="marca" required placeholder="Escribe el nombre del producto" class="block p-2.5 w-48 h-8 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="Marca">
                             </mat-form-field>
                           </div>
 
@@ -98,14 +99,14 @@
                         <div class="flex justify-between">
                           <div>
                             <mat-form-field class="example-full-width">
-                              <mat-label class="text-black " >Precio </mat-label>
-                              <input  class="h-8" matInput type="number"  placeholder="0">
+                              <mat-label  >Precio </mat-label>
+                              <input  class="h-8" matInput type="number" formControlName="precio" required placeholder="0">
                             </mat-form-field>
                           </div>
                           <div>
                             <mat-form-field class="example-full-width">
-                              <mat-label class="text-black " >Cantidad</mat-label>
-                              <input  class="h-8" matInput type="number"  placeholder="0">
+                              <mat-label >Cantidad</mat-label>
+                              <input  class="h-8" matInput type="number"  formControlName="cantidad" required placeholder="0">
                             </mat-form-field>
                           </div>
 
