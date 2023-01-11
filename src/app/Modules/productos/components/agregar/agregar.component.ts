@@ -26,7 +26,7 @@ export class AgregarComponent implements OnInit {
   formularioContacto = this.fb.group({
     nombreP: ['', [Validators.required, Validators.minLength(10)]],
     descripcion: ['', [Validators.required, Validators.maxLength(500)]],
-    categoria: ['moda',Validators.required,],
+    categoria: ['',Validators.required,],
     mensaje: ['', [Validators.required, Validators.maxLength(500)]],
   });
 
