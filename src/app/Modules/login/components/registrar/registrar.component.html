@@ -35,8 +35,8 @@
                   <mat-select [formControl]="rolControl">
                     <mat-optgroup *ngFor="let group of rolGroups" [label]="group.name"
                                   [disabled]="group.disabled">
-                      <mat-option *ngFor="let pokemon of group.rol" [value]="pokemon.value">
-                        {{pokemon.viewValue}}
+                      <mat-option *ngFor="let rol of group.rol" [value]="rol.value">
+                        {{rol.viewValue}}
                       </mat-option>
                     </mat-optgroup>
                   </mat-select>
