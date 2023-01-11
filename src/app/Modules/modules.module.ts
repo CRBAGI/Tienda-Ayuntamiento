@@ -5,6 +5,7 @@ import { MaterialModule } from '../../Material/material.module';
 import { LandingComponent } from './landing/components/landing/landing.component';
 import { SwiperModule } from "swiper/angular";
 import { CarritoComponent } from './carrito/components/carrito/carrito.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -18,6 +19,7 @@ import { CarritoComponent } from './carrito/components/carrito/carrito.component
     CommonModule,
     ModulesRoutingModule,
     MaterialModule, 
+    SharedModule,
     SwiperModule,
 
   ]

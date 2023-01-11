@@ -2,7 +2,7 @@
   <section class="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
     <div class="flex justify-end py-3">
       <div class="max-w-screen-xl bg-slate-100  mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
-      
+ <form [formGroup]="formularioContacto" (ngSubmit)="submit()">   
     <div class="grid grid-cols-2  sm:grid-cols-5 grid-rows-1">
         <!--Fotos-->
         <div class="col-span-1 sm:col-span-3">
@@ -38,7 +38,7 @@
               </div>
               <div class="w-full sm:w-9/12 px-4">
               <img class="col-span-1 mb-5" src="https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-rosegold-select-2015.png" alt="">
-              
+           
               <div>      
                 <label class="text-black " for="fotos">Agregar Fotos</label>
                 <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file" class="block p-2.5 " placeholder="Cantidad">
@@ -56,30 +56,25 @@
             <div class="col-span-2">
               <h1 class="font-semibold text-2xl">Agregar Producto</h1>  
                   <div class="">
-                        <label class="text-black " for="emailAddress">Nombre del producto </label>
-                        <input type="text" id="Nombredelproducto" placeholder="Nombre del producto" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label class="text-black ">Nombre del producto </label>
+                        <input type="text" formControlName="nombreP" required placeholder="Nombre del producto" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                   </div>
                   <div class="">
-                          <label class="text-black " for="emailAddress">Descripcion </label>
-                          <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
+                          <label class="text-black " >Descripcion </label>
+                          <textarea formControlName="categoria" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
                   </div>
                         <div class="flex justify-between">
                           <div class="py-3"> 
                             <mat-form-field appearance="fill">
-                              <mat-label class="">Categoria</mat-label>
-                              <mat-select>
-                                <mat-option value="1">Moda</mat-option>
-                                <mat-option value="2">Juegos</mat-option>
-                            <mat-optgroup label="Tecnologia"> 
-                                <mat-option value="3">Telefonos</mat-option>  
-                                <mat-option value="5">Camaras y Accesorios</mat-option>
-                                <mat-option value="6">Electronica</mat-option>
-                            </mat-optgroup>     
-                            <mat-optgroup label="Computadoras">  
-                              <mat-option value="4">PC</mat-option>
-                              <mat-option value="5">Laptops</mat-option>
-                            </mat-optgroup>   
-                                <mat-option value="4">Juguetes</mat-option>
+                              <mat-label>Categoria</mat-label>
+                              <mat-select [formControl]="categoriaControl">
+                                <mat-option>-- None --</mat-option>
+                                <mat-optgroup *ngFor="let group of categoriaGroups" [label]="group.name"
+                                              [disabled]="group.disabled">
+                                  <mat-option *ngFor="let pokemon of group.categoria" [value]="pokemon.value">
+                                    {{pokemon.viewValue}}
+                                  </mat-option>
+                                </mat-optgroup>
                               </mat-select>
                             </mat-form-field>
                             
@@ -124,6 +119,8 @@
                     Agregar
                     </a>
               </div>
+            </form>
+
             </div>
 
    </div>
