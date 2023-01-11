@@ -23,10 +23,13 @@ export class AgregarComponent implements OnInit {
 //Formulario
   constructor(private fb: FormBuilder) { }
 
-  formularioContacto = this.fb.group({
+  formularioAgregar = this.fb.group({
     nombreP: ['', [Validators.required, Validators.minLength(10)]],
     descripcion: ['', [Validators.required, Validators.maxLength(500)]],
     categoria: ['',Validators.required,],
+    marca: ['',Validators.required,],
+    precio: ['',Validators.required,],
+    cantidad: ['',Validators.required,],
     mensaje: ['', [Validators.required, Validators.maxLength(500)]],
   });
 
