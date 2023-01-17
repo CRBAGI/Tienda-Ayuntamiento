@@ -14,6 +14,17 @@ interface rolGroup {
   rol: rol[];
 }
 
+interface sexo {
+  value: string;
+  viewValue: string;
+}
+
+interface sexoGroup {
+  disabled?: boolean;
+  name: string;
+  sexo: sexo[];
+}
+
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
@@ -30,7 +41,8 @@ export class RegistrarComponent implements OnInit {
       rol: ['',Validators.required,],
       contraseña: ['', [Validators.required, Validators.maxLength(500)]],
       confirmarContraseña: ['', [Validators.required, Validators.maxLength(500)]],
-      fechaN: ['2/2/1990', Validators.required,]
+      fechaN: ['2/2/1990', Validators.required,],
+      sexo: ['', Validators.required,]
 
     });
     
@@ -51,6 +63,18 @@ export class RegistrarComponent implements OnInit {
       ],
     },
   ];
+  // 
+  sexoControl = new FormControl('');
+  sexoGroups: sexoGroup[] = [
+    {
+          name: 'sexo',
+          disabled: false,
+          sexo: [
+            {value: 'Hombre-0', viewValue: 'Hombre'},
+            {value: 'Mujer-1', viewValue: 'Mujer'},
+          ],
+        },
+      ];
   //calendario
   startDate = new Date(1990, 0, 1);
   ngOnInit(): void {
