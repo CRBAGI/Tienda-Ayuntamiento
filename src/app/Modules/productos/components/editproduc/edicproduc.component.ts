@@ -28,13 +28,12 @@ export class EdicproducComponent implements OnInit {
 constructor(private fb: FormBuilder) { }
 
 formularioEditar = this.fb.group({
-  nombreP: ['', [Validators.required, Validators.minLength(10)]],
+  nombreP: ['', [Validators.required, Validators.minLength(100)]],
   descripcion: ['', [Validators.required, Validators.maxLength(500)]],
   categoria: ['',Validators.required,],
   marca: ['',Validators.required,],
   precio: ['',Validators.required,],
   cantidad: ['',Validators.required,],
-  mensaje: ['', [Validators.required, Validators.maxLength(500)]],
 });
 
 submit() {

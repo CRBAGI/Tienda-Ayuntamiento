@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-verproducto',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerproductoComponent implements OnInit {
 
-  constructor() { }
+//Formulario
+constructor(private fb: FormBuilder) { }
+
+formularioCantidad = this.fb.group({
+  cantidad: ['4', [Validators.required, Validators.minLength(100)]],
+  descripcion: ['Aqui va la descripccion', [Validators.required, Validators.maxLength(500)]],
+});
+
+submit() {
+
+}
 
   ngOnInit(): void {
   }
