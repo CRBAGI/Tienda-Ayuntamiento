@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import {FormControl} from '@angular/forms';
+import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 
 interface Categoria {
   value: string;
@@ -19,9 +20,12 @@ interface categoriaGroup {
   styleUrls: ['./agregar.component.css']
 })
 export class AgregarComponent implements OnInit {
+  images : string[];
   hide = true;
 //Formulario
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private storage : Storage) { 
+    this.images=[];
+  }
 
   formularioAgregar = this.fb.group({
     nombreP: ['', [Validators.required, Validators.minLength(10)]],
@@ -75,10 +79,41 @@ export class AgregarComponent implements OnInit {
       ],
     },
   ];
-
-
   ngOnInit(): void {
+    this.getImages();
   }
+
+  uploadImage($event: any){
+    const file = $event.target.files[0];
+    console.log(file);
+
+    const imgRef= ref(this.storage, `images/${file.name}`)
+
+    uploadBytes(imgRef, file)
+    .then(Response=>console.log(Response))
+    .catch(error=>console.log(error))
+    
+  }
+
+  getImages(){
+    const imagesRef = ref(this.storage, 'images');
+    listAll(imagesRef)
+    .then(async Response=>{
+      console.log(Response);
+      this.images=[];
+
+      for (let item of Response.items){
+        const url = await getDownloadURL(item);
+        this.images.push(url)
+      }
+    })
+    .catch(error=> console.log(error))
+
+  }
+
+
+
+  
 
 }
 

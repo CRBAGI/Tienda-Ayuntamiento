@@ -16,7 +16,7 @@
                 </svg>
               </a>
               <a class="h-30 block mb-4 mr-2 sm:mr-0" href="#">
-                <img class="object-scale-down w-8 h-8" src="https://http2.mlstatic.com/D_NQ_NP_734958-MLA43712584175_102020-O.webp" alt="">
+                <img class="object-scale-down w-8 h-8" [src]="images" *ngFor="let images of images">
                 <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Eliminar</a>
               </a>
               <a class="hidden sm:block h-30 mb-4 mr-2 sm:mr-0" href="#">
@@ -42,7 +42,7 @@
            
               <div>      
                 <label class="text-black " for="fotos">Agregar Fotos</label>
-                <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file" class="block p-2.5 " placeholder="Cantidad">
+                <input accept="image/png,image/jpeg" (change)="uploadImage($event)" required type="file" class="block p-2.5 " placeholder="Cantidad">
                 </div>
               </div>
           
