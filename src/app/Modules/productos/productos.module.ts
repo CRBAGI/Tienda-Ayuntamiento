@@ -11,6 +11,7 @@ import { VerproductoComponent } from './components/verproducto/verproducto.compo
 import { EdicproducComponent } from './components/editproduc/edicproduc.component';
 import { SwiperModule } from "swiper/angular";
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LugardepruebasComponent } from './components/lugardepruebas/lugardepruebas.component';
 
 
 
@@ -22,6 +23,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AgregarComponent,
     VerproductoComponent,
     EdicproducComponent,
+    LugardepruebasComponent,
 
   ],
   imports: [

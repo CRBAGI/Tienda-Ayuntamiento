@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage, ref, uploadBytes, listAll, getDownloadURL, deleteObject } from '@angular/fire/storage';
 import { Validators, FormBuilder } from '@angular/forms';
 import {FormControl} from '@angular/forms';
-import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
+
 
 interface Categoria {
   value: string;
@@ -14,18 +15,35 @@ interface categoriaGroup {
   categoria: Categoria[];
 }
 
+
 @Component({
-  selector: 'app-agregar',
-  templateUrl: './agregar.component.html',
-  styleUrls: ['./agregar.component.css']
+  selector: 'app-lugardepruebas',
+  templateUrl: './lugardepruebas.component.html',
+  styleUrls: ['./lugardepruebas.component.css']
 })
-export class AgregarComponent implements OnInit {
+export class LugardepruebasComponent implements OnInit {
+  public indiceSeleccionado = 0;
+  public cont = 0;
+  public border: number = 0;
   images : string[];
-  hide = true;
-//Formulario
+  imagenP: string[];
+  imagenM: string[];
+  imageUrls: string[] = [];
+  url1: string[];
+
   constructor(private fb: FormBuilder, private storage : Storage) { 
     this.images=[];
+    this.imagenP=[];
+    this.imagenM=[];
+    this.imageUrls;
+    this.url1=[];
+    
   }
+
+  formularioCantidad = this.fb.group({
+    cantidad: ['4', [Validators.required, Validators.minLength(100)]],
+    descripcion: ['Aqui va la descripccion', [Validators.required, Validators.maxLength(500)]],
+  });
 
   formularioAgregar = this.fb.group({
     nombreP: ['', [Validators.required, Validators.minLength(10)]],
@@ -37,9 +55,6 @@ export class AgregarComponent implements OnInit {
     mensaje: ['', [Validators.required, Validators.maxLength(500)]],
   });
 
-  submit() {
-
-  }
 
   //Categoria
   categoriaControl = new FormControl('');
@@ -79,6 +94,11 @@ export class AgregarComponent implements OnInit {
       ],
     },
   ];
+
+
+
+  
+
   ngOnInit(): void {
     this.getImages();
   }
@@ -90,7 +110,11 @@ export class AgregarComponent implements OnInit {
     const imgRef= ref(this.storage, `images/${file.name}`)
 
     uploadBytes(imgRef, file)
-    .then(Response=>console.log(Response))
+    .then(Response=>{
+      console.log(Response)
+      this.getImages();
+    })
+    
     .catch(error=>console.log(error))
     
   }
@@ -100,19 +124,63 @@ export class AgregarComponent implements OnInit {
     listAll(imagesRef)
     .then(async Response=>{
       console.log(Response);
-      this.images=[];
-
+      this.imageUrls=[];
+      this.imagenM=[];
+      
+     
       for (let item of Response.items){
         const url = await getDownloadURL(item);
-        this.images.push(url)
+        this.imageUrls.push(url)
+        console.log(this.imageUrls)
+        
+          
+      
       }
+      const url1=this.imageUrls[0]
+      this.imagenM.push(url1)
+      
     })
     .catch(error=> console.log(error))
 
   }
 
+  deleteImage(index: number) {
+    const imageUrl = this.imageUrls[index];
+    this.imageUrls.splice(index, 1);
+    this.imagenM.splice(0);
+    // Eliminar la imagen del almacenamiento aquí
+    const refe = ref(this.storage, imageUrl);
+    
+    
+    deleteObject(refe).then(() => {
+      // File deleted successfully
+    }).catch((error) => {
+      // Uh-oh, an error occurred!
+    });
 
+  }
 
-  
+  selectImage(index: number) {
+    this.imagenP=[];
+    this.imagenM=[];
+    const imagenP = this.imageUrls[index];
+    
+    this.imagenM.push(imagenP)
+    this.border=1;
+    console.log("url que toma", imagenP)
+   
 
+  }
+  imagenprincipal(){
+    this.imagenM=[];
+    const url1=this.imageUrls[0]
+    this.imagenM.push(url1)
+
+  }
+
+  submit() {
+
+  }
 }
+
+

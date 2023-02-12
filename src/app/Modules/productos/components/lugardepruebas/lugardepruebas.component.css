@@ -1,0 +1,10 @@
+.selected {
+    transform: scale(1.5);
+  }
+  .borderr {
+    border: 0px;
+  }
+  
+  .borderr:hover {
+    border: 3px solid #4f9;
+  }
