@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import {FormControl} from '@angular/forms';
-import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
+import {Storage, ref, uploadBytes, listAll, getDownloadURL, deleteObject} from '@angular/fire/storage';
 
 interface Categoria {
   value: string;
@@ -20,11 +20,21 @@ interface categoriaGroup {
   styleUrls: ['./agregar.component.css']
 })
 export class AgregarComponent implements OnInit {
+  public indiceSeleccionado = 0;
+  public cont = 0;
+  public border: number = 0;
   images : string[];
-  hide = true;
+  imagenP: string[];
+  imagenM: string[];
+  imageUrls: string[] = [];
+  url1: string[];
 //Formulario
   constructor(private fb: FormBuilder, private storage : Storage) { 
     this.images=[];
+    this.imagenP=[];
+    this.imagenM=[];
+    this.imageUrls;
+    this.url1=[];
   }
 
   formularioAgregar = this.fb.group({
@@ -90,7 +100,11 @@ export class AgregarComponent implements OnInit {
     const imgRef= ref(this.storage, `images/${file.name}`)
 
     uploadBytes(imgRef, file)
-    .then(Response=>console.log(Response))
+    .then(Response=>{
+      console.log(Response)
+      this.getImages();
+    })
+    
     .catch(error=>console.log(error))
     
   }
@@ -100,19 +114,61 @@ export class AgregarComponent implements OnInit {
     listAll(imagesRef)
     .then(async Response=>{
       console.log(Response);
-      this.images=[];
-
+      this.imageUrls=[];
+      this.imagenM=[];
+      
+     
       for (let item of Response.items){
         const url = await getDownloadURL(item);
-        this.images.push(url)
+        this.imageUrls.push(url)
+        console.log(this.imageUrls)
+        
+          
+      
       }
+      const url1=this.imageUrls[0]
+      this.imagenM.push(url1)
+      
     })
     .catch(error=> console.log(error))
 
   }
 
+  deleteImage(index: number) {
+    const imageUrl = this.imageUrls[index];
+    this.imageUrls.splice(index, 1);
+    this.imagenM.splice(0);
+    // Eliminar la imagen del almacenamiento aquí
+    const refe = ref(this.storage, imageUrl);
+    
+    
+    deleteObject(refe).then(() => {
+      // File deleted successfully
+    }).catch((error) => {
+      // Uh-oh, an error occurred!
+    });
 
+  }
 
-  
+  selectImage(index: number) {
+    this.imagenP=[];
+    this.imagenM=[];
+    const imagenP = this.imageUrls[index];
+    
+    this.imagenM.push(imagenP)
+    this.border=1;
+    console.log("url que toma", imagenP)
+   
+
+  }
+  imagenprincipal(){
+    this.imagenM=[];
+    const url1=this.imageUrls[0]
+    this.imagenM.push(url1)
+
+  }
+
 
 }
+
+
