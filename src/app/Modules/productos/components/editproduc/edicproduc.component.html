@@ -1,135 +1,125 @@
-<body class="bg-gray-500 w-full">
-	<section class="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
-	  <div class="flex justify-end py-3">
-		<div class="max-w-screen-xl bg-slate-100  mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
-   <form [formGroup]="formularioEditar" (ngSubmit)="submit()">  
-	
-	  <div class="grid grid-cols-2  sm:grid-cols-5 grid-rows-1">
-		  <!--Fotos-->
-		  <div class="col-span-1 sm:col-span-3">
-			<div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
-			  <div class="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
-				<div class="w-full sm:w-auto min-w-max px-4 text-center flex sm:flex-col items-center justify-center">
-				<a class="inline-block sm:mb-12 mr-4 sm:mr-0 transform -rotate-90 sm:transform-none hover:text-darkBlueGray-400" href="#">
-				  <svg width="12" height="8" viewbox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-				  <path d="M1.54064 7.21015C1.18719 7.59662 0.615928 7.59662 0.265087 7.21015C-0.087058 6.82369 -0.0896663 6.19929 0.265087 5.81282L5.36206 0.289847C5.71421 -0.0966173 6.28416 -0.0966172 6.63892 0.289847L11.7359 5.81282C12.088 6.19785 12.088 6.82369 11.7359 7.21015C11.3824 7.59662 10.8112 7.59662 10.4603 7.21015L5.99853 2.68073L1.54064 7.21015Z" fill="currentColor"></path>
-				  </svg>
-				</a>
-				<a class="h-30 block mb-4 mr-2 sm:mr-0" href="#">
-				  <img class="object-scale-down w-8 h-8" src="https://http2.mlstatic.com/D_NQ_NP_734958-MLA43712584175_102020-O.webp" alt="">
-				  <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Eliminar</a>
-				</a>
-				<a class="hidden sm:block h-30 mb-4 mr-2 sm:mr-0" href="#">
-				  <img class="object-scale-down w-8 h-8" src="https://http2.mlstatic.com/D_NQ_NP_901429-MLA43712471488_102020-O.webp" alt="">
-				  <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Eliminar</a>
-				</a>
-				<a class="hidden sm:block h-30 mb-4 mr-2 sm:mr-0 rounded-xl border-2 border-blueGray-500" href="#">
-				  <img class="object-scale-down w-8 h-8" src="https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-rosegold-select-2015.png" alt="">
-				  <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Eliminar</a>
-				</a>
-				<a class="h-30 block mb-4 sm:mb-12 mr-4 sm:mr-0" href="#">
-				  <img class="object-scale-down w-8 h-8" src="https://http2.mlstatic.com/D_NQ_NP_651048-MLA43712471490_102020-O.webp" alt="">
-				  <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Eliminar</a>
-				</a>
-				<a class="inline-block transform -rotate-90 sm:transform-none hover:text-darkBlueGray-400" href="#">
-				  <svg width="12" height="8" viewbox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-				  <path d="M10.4594 0.289849C10.8128 -0.0966154 11.3841 -0.0966154 11.7349 0.289849C12.0871 0.676313 12.0897 1.30071 11.7349 1.68718L6.63794 7.21015C6.28579 7.59662 5.71584 7.59662 5.36108 7.21015L0.264109 1.68718C-0.0880364 1.30215 -0.0880363 0.676312 0.264109 0.289848C0.617558 -0.096616 1.18882 -0.0966159 1.53966 0.289848L6.00147 4.81927L10.4594 0.289849Z" fill="currentColor"></path>
-				  </svg>
-				</a>
-				</div>
-				<div class="w-full sm:w-9/12 px-4">
-				<img class="col-span-1 mb-5" src="https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-rosegold-select-2015.png" alt="">
-			 
-				<div>      
-				  <label class="text-black " for="fotos">Agregar Fotos</label>
-				  <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file" class="block p-2.5 " placeholder="Cantidad">
+<section class="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
+	<div class="container px-4 mx-auto">
+	  <form [formGroup]="formularioEditar" (ngSubmit)="submit()">
+	  <div class="flex flex-wrap -mx-4">
+		  <div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
+			<div class="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
+			  <div class="w-full sm:w-auto min-w-max px-4 text-center flex sm:flex-col items-center justify-center">
+				
+		  
+				<!--Contenedor-->
+				  <ng-container *ngIf="imageUrls.length; else noImages">
+					<ng-container *ngFor="let imageUrl of imageUrls; let i = index">
+						<a class="h-30 block mb-4 mr-2 sm:mr-0 " >
+							<img class="hidden sm:block h-30 mb-4 mr-2 sm:mr-0 rounded-xl object-scale-down w-8 h-8 cursor-pointer hover:scale-175 hover:bg-blend-darken borderr" [src]="imageUrl" (mouseenter)="selectImage(i)" >
+							<a class="font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer " (click)="deleteImage(i)">Eliminar</a>  
+			   </a>
+  
+  
+				  
+					  </ng-container>
+				   </ng-container>
+		  
+				  <ng-template #noImages>
+					<p >Sin imagenes</p>
+					</ng-template>
+			  
 				  </div>
-				</div>
-			
+			  
+			  <div class="w-full sm:w-9/12 px-4 object-center" *ngIf="imageUrls.length; else noimagen">
+				<img class="ml-2 object-scale-down w-96 h-96 object-center "  [src]="imagen" *ngFor="let imagen of imagenM" alt="">
 			  </div>
-			</div>
-  
-  
-  
-		  </div>
-  
-		  <!--Agregar-->
-			  <div class="col-span-2">
-				<h1 class="font-semibold text-2xl">Editar Producto</h1>  
-					<div class="">
-					  <mat-form-field class="example-full-width"> 
-					  <mat-label>Nombre del producto</mat-label>
-						  <input matInput type="text" formControlName="nombreP" required placeholder="Escribe el nombre del producto" class="block p-2.5 w-full h-6 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-						</mat-form-field>
-						</div>
-					<div class="">
-						 <mat-form-field class="example-full-width">
-							<mat-label >Descripcion </mat-label>
-							<textarea matInput #descripcion maxlength="256" formControlName="descripcion" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
-							<mat-hint align="end">{{descripcion.value.length}} / 256</mat-hint>
-						  </mat-form-field>
-						  </div>
-						  <div class="flex justify-between">
-							<div class="py-3"> 
-							  <mat-form-field  appearance="fill">
-								<mat-label>Categoria</mat-label>
-								<mat-select [formControl]="categoriaControl">
-								  <mat-option>-- None --</mat-option>
-								  <mat-optgroup *ngFor="let group of categoriaGroups" [label]="group.name"
-												[disabled]="group.disabled">
-									<mat-option *ngFor="let categoria of group.categoria" [value]="categoria.value">
-									  {{categoria.viewValue}}
-									</mat-option>
-								  </mat-optgroup>
-								</mat-select>
-							  </mat-form-field>
-							</div>
-							<div>      
-  
-							  <mat-form-field class="example-full-width">
-								<mat-label >Marca </mat-label>
-								<input matInput type="text" formControlName="marca" required placeholder="Escribe el nombre del producto" class="block p-2.5 w-48 h-8 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="Marca">
-							  </mat-form-field>
-							</div>
-  
-							
-						  </div> 
-						  <!--Poner aqui-->
-						  <div class="flex justify-between">
-							<div>
-							  <mat-form-field class="example-full-width">
-								<mat-label  >Precio </mat-label>
-								<input  class="h-8" matInput type="number" formControlName="precio" required placeholder="0">
-							  </mat-form-field>
-							</div>
-							<div>
-							  <mat-form-field class="example-full-width">
-								<mat-label >Cantidad</mat-label>
-								<input  class="h-8" matInput type="number"  formControlName="cantidad" required placeholder="0">
-							  </mat-form-field>
-							</div>
-  
-						  </div>
-						</div>
-  
-						  
+			  <ng-template #noimagen>
+				<div  class="w-full sm:w-9/12 px-4 object-center">
+				  <div class="ml-2 object-scale-down w-96 h-96 object-center" >
+					<p class="text-sm text-center py-60">Sube las fotos de tus productos</p>
 				  </div>
-				  <!--Botones-->
-				  <div class="flex justify-between">
-					<a routerLink="" class="flex font-semibold text-indigo-600 text-sm mt-10">
-					  <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"></svg>
-					  Regresar
-					</a>
-					  <a routerLink="/agregar" class="flex font-semibold text-indigo-600 text-sm mt-10">
-					  <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"></svg>
-					  Agregar
-					  </a>
+				</div>
+			  </ng-template>
+			  <div  class="py-8">      
+				<label class="text-black " for="fotos">Agregar Fotos</label>
+				<input  type="file" (change)="uploadImage($event)" >
+			  </div>
+			  
+			</div>
+		  </div>
+		<div class="w-full lg:w-1/2 px-4">
+		 
+			  <h1 class="font-semibold text-2xl">Agregar Producto</h1>  
+				<div class="">
+				  <mat-form-field class="w-full"> 
+					<mat-label>Nombre del producto</mat-label>
+						<input matInput type="text" formControlName="nombreP" required placeholder="Escribe el nombre del producto" class="block p-2.5 w-full h-6 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+				   </mat-form-field>
+		</div>
+		  <div class="">
+			   <mat-form-field class="w-full">
+				  <mat-label >Descripcion </mat-label>
+				  <textarea matInput #descripcion maxlength="256" formControlName="descripcion" rows="4" class="block p-2.5 w-full text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripcion del producto..."></textarea>
+				  <mat-hint align="end">{{descripcion.value.length}} / 256</mat-hint>
+				</mat-form-field>
+		  </div>
+				<div class="flex justify-between">
+				  <div class="py-3"> 
+					<mat-form-field  appearance="fill">
+					  <mat-label>Categoria</mat-label>
+					  <mat-select [formControl]="categoriaControl">
+						<mat-option>-- None --</mat-option>
+						<mat-optgroup *ngFor="let group of categoriaGroups" [label]="group.name"
+									  [disabled]="group.disabled">
+						  <mat-option *ngFor="let categoria of group.categoria" [value]="categoria.value">
+							{{categoria.viewValue}}
+						  </mat-option>
+						</mat-optgroup>
+					  </mat-select>
+					</mat-form-field>
+				  </div>
+				  <div>      
+  
+					<mat-form-field class="example-full-width">
+					  <mat-label >Marca </mat-label>
+					  <input matInput type="text" formControlName="marca" required placeholder="Escribe el nombre del producto" class="block p-2.5 w-48 h-8 text-sm rounded-lg border focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="Marca">
+					</mat-form-field>
+				  </div>
+  
+				  
+				</div> 
+				<!--Poner aqui-->
+				<div class="flex justify-between">
+				  <div>
+					<mat-form-field class="example-full-width">
+					  <mat-label  >Precio </mat-label>
+					  <input  class="h-8" matInput type="number" formControlName="precio" required placeholder="0">
+					</mat-form-field>
+				  </div>
+				  <div>
+					<mat-form-field class="example-full-width">
+					  <mat-label >Cantidad</mat-label>
+					  <input  class="h-8" matInput type="number"  formControlName="cantidad" required placeholder="0">
+					</mat-form-field>
+				  </div>
+  
+				  
+  
+  
 				</div>
 				
-			  </form>
-  
+			  
 			  </div>
   
-	 </div>
-	</section>
-  </body>
+				
+		</div>
+			<div class="flex justify-between">
+			<a routerLink="" class="flex font-semibold text-indigo-600 text-sm mt-10">
+			  <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"></svg>
+			  Regresar
+			</a>
+			  <a routerLink="/agregar" class="flex font-semibold text-indigo-600 text-sm mt-10">
+			  <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"></svg>
+			  Agregar
+			  </a>
+			</div>
+		  </form>
+		</div>
+	
+  </section>

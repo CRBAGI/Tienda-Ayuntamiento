@@ -26,14 +26,14 @@ export class LugardepruebasComponent implements OnInit {
   public cont = 0;
   public border: number = 0;
   images : string[];
-  imagenP: string[];
+  imagenP: string;
   imagenM: string[];
   imageUrls: string[] = [];
   url1: string[];
 
   constructor(private fb: FormBuilder, private storage : Storage) { 
     this.images=[];
-    this.imagenP=[];
+    this.imagenP="";
     this.imagenM=[];
     this.imageUrls;
     this.url1=[];
@@ -108,7 +108,7 @@ export class LugardepruebasComponent implements OnInit {
     console.log(file);
 
     const imgRef= ref(this.storage, `images/${file.name}`)
-
+    this.imagenP= file.name
     uploadBytes(imgRef, file)
     .then(Response=>{
       console.log(Response)
@@ -161,7 +161,7 @@ export class LugardepruebasComponent implements OnInit {
   }
 
   selectImage(index: number) {
-    this.imagenP=[];
+    
     this.imagenM=[];
     const imagenP = this.imageUrls[index];
     

@@ -20,8 +20,6 @@ interface categoriaGroup {
   styleUrls: ['./agregar.component.css']
 })
 export class AgregarComponent implements OnInit {
-  public indiceSeleccionado = 0;
-  public cont = 0;
   public border: number = 0;
   images : string[];
   imagenP: string[];

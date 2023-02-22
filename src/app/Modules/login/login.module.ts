@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './components/login/login.component';
@@ -23,7 +24,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatIconModule,
     MatButtonModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
   ]
 })
 export class LoginModule { }

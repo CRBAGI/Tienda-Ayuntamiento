@@ -12,7 +12,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
 
  @NgModule({
   declarations: [],
@@ -31,6 +33,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatChipsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    //MatMomentDateModule,
+   
     
       ],
   exports: [
@@ -47,6 +51,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatChipsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    //MatMomentDateModule,
        ]
     })
     export class MaterialModule { }
