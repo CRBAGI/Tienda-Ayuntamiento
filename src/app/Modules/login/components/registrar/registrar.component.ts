@@ -37,8 +37,8 @@ interface sexoGroup {
 export class RegistrarComponent implements OnInit {
   hide = true;
   hide2 = true;
-   dateStr : Date;
-   fdn : String
+   
+   fdn? : String
    images : any;
    imagenP: any;
    imageUrls: string[] = [];
@@ -52,7 +52,7 @@ export class RegistrarComponent implements OnInit {
   
   //Formulario
     constructor(private fb: FormBuilder, private http: HttpClient, private storage : Storage) {
-      this.dateStr=new Date;
+      
       this.fdn="";
       this.imagenP='';
       this.images;
@@ -118,8 +118,9 @@ export class RegistrarComponent implements OnInit {
  
   onDateChange(event: MatDatepickerInputEvent<Date>) {
     const selectedDate = event.value; // Obtiene la fecha seleccionada en el datepicker
-     const dateStr  = selectedDate?.toISOString().substring(0, 10); // Convierte la fecha en formato ISO 8601
     
+     let dateStr  = selectedDate?.toISOString().substring(0, 10); // Convierte la fecha en formato ISO 8601
+    this.fdn=dateStr
     console.log(dateStr)
     // Aquí puedes guardar la fecha en la base de datos
  }
@@ -172,7 +173,7 @@ export class RegistrarComponent implements OnInit {
       contraseña:this.formularioRegistro.value.contraseña,
       rol: this.rolControl.getRawValue(),
       sexo: this.sexoControl.getRawValue(),
-      FechaDeNacimiento: this.dateStr?.toISOString().substring(0, 10),
+      FechaDeNacimiento: this.fdn,
       fotoDePerfil : this.images
       
       
@@ -185,9 +186,7 @@ export class RegistrarComponent implements OnInit {
       (error) => console.log(error)
     );
    
-    //const selectedDate = this.fechaN;
-    //console.log(selectedDate); // Esto imprimirá el valor seleccionado en el datepicker.
-    
+
   
     
   }

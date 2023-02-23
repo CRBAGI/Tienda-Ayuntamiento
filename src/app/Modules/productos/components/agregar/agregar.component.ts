@@ -22,6 +22,7 @@ interface categoriaGroup {
 export class AgregarComponent implements OnInit {
   public border: number = 0;
   images : string[];
+  nombre: String;
   imagenP: string[];
   imagenM: string[];
   imageUrls: string[] = [];
@@ -33,6 +34,7 @@ export class AgregarComponent implements OnInit {
     this.imagenM=[];
     this.imageUrls;
     this.url1=[];
+    this.nombre="";
   }
 
   formularioAgregar = this.fb.group({
@@ -94,7 +96,7 @@ export class AgregarComponent implements OnInit {
   uploadImage($event: any){
     const file = $event.target.files[0];
     console.log(file);
-
+    this.nombre = file.name
     const imgRef= ref(this.storage, `images/${file.name}`)
 
     uploadBytes(imgRef, file)
@@ -108,7 +110,7 @@ export class AgregarComponent implements OnInit {
   }
 
   getImages(){
-    const imagesRef = ref(this.storage, 'images');
+    const imagesRef = ref(this.storage, `images/`);
     listAll(imagesRef)
     .then(async Response=>{
       console.log(Response);
